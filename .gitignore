@@ -1,0 +1,75 @@
+# ----------------------------
+# Secrets / Environment
+# ----------------------------
+.env
+.env.*
+!.env.example
+
+# ----------------------------
+# Python
+# ----------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# ----------------------------
+# Streamlit
+# ----------------------------
+.streamlit/secrets.toml
+.streamlit/*.log
+
+# ----------------------------
+# IDE / OS
+# ----------------------------
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# ----------------------------
+# Logs
+# ----------------------------
+*.log
+logs/
+log/
+
+# ----------------------------
+# Neo4j (Docker runtime data)
+# Keep the docker-compose / Dockerfile / ETL script tracked
+# ----------------------------
+Neo4j/data/
+Neo4j/logs/
+Neo4j/plugins/
+
+# Ignore imported CSVs (often large), but keep the ETL script
+Neo4j/import/**
+!Neo4j/import/
+!Neo4j/import/ETL.cypher
+
+# If you store CSVs elsewhere under Neo4j/
+*.csv
+*.zip
+
+# ----------------------------
+# Misc
+# ----------------------------
+*.tmp
+*.bak

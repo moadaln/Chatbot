@@ -1,0 +1,61 @@
+[   {
+      "id": "Q01",
+      "question": "Which trips start on 2022-03-17 between 07:00 and 09:00?"
+    },
+    {
+      "id": "Q02",
+      "question": "Which trips on line (QBUZZ:g174) on 2022-10-27 take longer than 1700 seconds?"
+    },
+    {
+      "id": "Q03",
+      "question": "List all trips for route (route_id: 2852) on 2023-05-12 with trip ID, start time, end time, and total duration."
+    },
+    {
+      "id": "Q04",
+      "question": "For trip (trip_id: QBUZZ:8:0) on 2023-11-03, show a timeline of the stops in order and the travel segments between them."
+    },
+    {
+      "id": "Q05",
+      "question": "For trip (trip_id: QBUZZ:1:0) on 2023-02-14, is the trip’s total duration roughly equal to the sum of the travel times between stops?"
+    },
+    {
+      "id": "Q06",
+      "question": "Which travel segments are slowest on average (top 5), and which routes include them?"
+    },
+    {
+      "id": "Q07",
+      "question": "For route (route_id:2848) on 2022-12-09, how many trips were recorded and what is the average trip duration?"
+    },
+    {
+      "id": "Q08",
+      "question": "Create an executive daily brief for 2023-09-18: total trips, average/median/90th percentile trip duration, top 5 slowest routes, top 5 stops with the longest typical stop times, and the busiest start-hour."
+    },
+    {
+      "id": "Q09",
+      "question": "On 2022-04-27, list the top 10 unusually long trips (with route and line), and show how far above the day's median each one is."
+    },
+    {
+      "id": "Q10",
+      "question": "Create a daily health card for route (route_id: 2852) on 2023-01-10: number of trips, average/median/90th percentile duration, earliest and latest start time, and whether it performed better or worse than its typical average."
+    },
+    {
+      "id": "Q11",
+      "question": "Compare 2023-03-13–2023-03-19 with the previous week: change in total trips, change in average trip duration, and whether the top 3 slowest routes changed."
+    },
+    {
+      "id": "Q12",
+      "question": "Create a monthly management report for 2022-02: total trips, average/median/90th percentile trip duration, top 10 routes by volume, top 10 stops with the longest typical stop times, and top 10 slowest travel segments."
+    },
+    {
+      "id": "Q13",
+      "question": "Create a stop profile for stop (Stop QBUZZ:12631790) in 2023-08: which lines or routes serve it, typical stop time, the observed average stop time over the month, and the top 3 days/times when stop times were highest."
+    },
+    {
+      "id": "Q14",
+      "question": "Compare 2022 vs 2023: change in total trips, change in average trip duration, and the top 5 routes that improved or worsened the most."
+    },
+    {
+      "id": "Q15",
+      "question": "For line (QBUZZ:g174) during 2023: total trips, average/median/90th percentile trip duration, top 5 slowest routes on this line, and the 3 stops with the longest typical stop times."
+    }
+]

@@ -1,0 +1,12 @@
+# UI
+streamlit
+pandas
+
+# Database
+neo4j
+python-dotenv
+
+# Agent + MCP
+openai
+openai-agents
+mcp

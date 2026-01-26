@@ -1,0 +1,1042 @@
+[   {
+      "id": "Q01",
+      "question": "Which trips start on 2022-03-17 between 07:00 and 09:00?",
+      "query_1": "MATCH (t:Trip) WHERE date(t.date) = date('2022-03-17') AND time(t.from_time) >= time('07:00') AND time(t.from_time) < time('09:00') RETURN t.trip_id AS trip_id, t.route_id AS route_id, t.line AS line, t.from_time AS start_time, t.to_time AS end_time, t.travel_time_seconds AS duration_seconds ORDER BY start_time, trip_id",
+      "correct_response_1": [
+        {
+          "trip_id": "QBUZZ:1026:0",
+          "route_id": "4255",
+          "line": "QBUZZ:g174",
+          "start_time": "2022-03-17T07:38:00.000000000+00:00",
+          "end_time": "2022-03-17T10:53:17.000000000+00:00",
+          "duration_seconds": 2795.0
+        },
+        {
+          "trip_id": "QBUZZ:1030:0",
+          "route_id": "7525",
+          "line": "QBUZZ:g310",
+          "start_time": "2022-03-17T07:52:53.000000000+00:00",
+          "end_time": "2022-03-17T11:53:12.000000000+00:00",
+          "duration_seconds": 1971.0
+        },
+        {
+          "trip_id": "QBUZZ:1033:0",
+          "route_id": "657",
+          "line": "QBUZZ:g174",
+          "start_time": "2022-03-17T08:18:32.000000000+00:00",
+          "end_time": "2022-03-17T13:46:10.000000000+00:00",
+          "duration_seconds": 1759.0
+        },
+        {
+          "trip_id": "QBUZZ:1018:0",
+          "route_id": "4255",
+          "line": "QBUZZ:g174",
+          "start_time": "2022-03-17T08:25:50.000000000+00:00",
+          "end_time": "2022-03-17T08:53:36.000000000+00:00",
+          "duration_seconds": 1573.0
+        },
+        {
+          "trip_id": "QBUZZ:1013:0",
+          "route_id": "4226",
+          "line": "QBUZZ:g013",
+          "start_time": "2022-03-17T08:33:18.000000000+00:00",
+          "end_time": "2022-03-17T08:42:32.000000000+00:00",
+          "duration_seconds": 536.0
+        },
+        {
+          "trip_id": "QBUZZ:1038:0",
+          "route_id": "4255",
+          "line": "QBUZZ:g174",
+          "start_time": "2022-03-17T08:38:58.000000000+00:00",
+          "end_time": "2022-03-17T13:55:34.000000000+00:00",
+          "duration_seconds": 2704.0
+        }
+      ]
+    },
+    {
+      "id": "Q02",
+      "question": "Which trips on line (QBUZZ:g174) on 2022-10-27 take longer than 1700 seconds?",
+      "query_1": "MATCH (t:Trip) WHERE date(t.date) = date('2022-10-27') AND t.line = 'QBUZZ:g174' AND t.travel_time_seconds > 1700 RETURN t.trip_id AS trip_id, t.route_id AS route_id, t.from_time AS start_time, t.to_time AS end_time, t.travel_time_seconds AS duration_seconds ORDER BY duration_seconds DESC, start_time",
+      "correct_response_1": [
+        {
+          "trip_id": "QBUZZ:1029:0",
+          "route_id": "657",
+          "start_time": "2022-10-27T07:17:53.000000000+00:00",
+          "end_time": "2022-10-27T11:44:01.000000000+00:00",
+          "duration_seconds": 1912.0
+        },
+        {
+          "trip_id": "QBUZZ:1013:0",
+          "route_id": "657",
+          "start_time": "2022-10-27T04:37:48.000000000+00:00",
+          "end_time": "2022-10-27T07:39:56.000000000+00:00",
+          "duration_seconds": 1860.0
+        },
+        {
+          "trip_id": "QBUZZ:1049:0",
+          "route_id": "657",
+          "start_time": "2022-10-27T09:46:54.000000000+00:00",
+          "end_time": "2022-10-27T16:40:35.000000000+00:00",
+          "duration_seconds": 1741.0
+        }
+      ]
+    },
+    {
+      "id": "Q03",
+      "question": "List all trips for route (route_id: 2852) on 2023-05-12 with trip ID, start time, end time, and total duration.",
+      "query_1": "MATCH (t:Trip) WHERE date(t.date) = date('2023-05-12') AND toString(t.route_id) = '2852' RETURN t.trip_id AS trip_id, t.from_time AS start_time, t.to_time AS end_time, t.travel_time_seconds AS duration_seconds ORDER BY start_time, trip_id",
+      "correct_response_1": [
+        {
+          "trip_id": "QBUZZ:8041:0",
+          "start_time": "2023-05-12T08:05:40.000000000+00:00",
+          "end_time": "2023-05-12T08:19:22.000000000+00:00",
+          "duration_seconds": 750.0
+        },
+        {
+          "trip_id": "QBUZZ:8077:0",
+          "start_time": "2023-05-12T12:34:46.000000000+00:00",
+          "end_time": "2023-05-12T12:51:27.000000000+00:00",
+          "duration_seconds": 869.0
+        },
+        {
+          "trip_id": "QBUZZ:8081:0",
+          "start_time": "2023-05-12T13:04:50.000000000+00:00",
+          "end_time": "2023-05-12T13:21:25.000000000+00:00",
+          "duration_seconds": 910.0
+        },
+        {
+          "trip_id": "QBUZZ:8085:0",
+          "start_time": "2023-05-12T13:39:09.000000000+00:00",
+          "end_time": "2023-05-12T13:55:28.000000000+00:00",
+          "duration_seconds": 876.0
+        },
+        {
+          "trip_id": "QBUZZ:8089:0",
+          "start_time": "2023-05-12T14:04:47.000000000+00:00",
+          "end_time": "2023-05-12T14:20:49.000000000+00:00",
+          "duration_seconds": 895.0
+        }
+      ]
+    },
+    {
+      "id": "Q04",
+      "question": "For trip (trip_id: QBUZZ:8:0) on 2023-11-03, show a timeline of the stops in order and the travel segments between them.",
+      "query_1": "MATCH (t:Trip)-[d:DWELL_AT]->(s:Stop) WHERE t.trip_id = 'QBUZZ:8:0' AND date(t.date) = date('2023-11-03') RETURN s.stop_id AS stop_id, d.dwell_time_seconds AS stop_time_seconds ORDER BY stop_id",
+      "correct_response_1": [
+        {
+          "stop_id": "QBUZZ:12632020",
+          "stop_time_seconds": 0
+        },
+        {
+          "stop_id": "QBUZZ:12632120",
+          "stop_time_seconds": 0
+        },
+        {
+          "stop_id": "QBUZZ:12632220",
+          "stop_time_seconds": 0
+        },
+        {
+          "stop_id": "QBUZZ:12632630",
+          "stop_time_seconds": 0
+        },
+        {
+          "stop_id": "QBUZZ:12634110",
+          "stop_time_seconds": 0
+        },
+        {
+          "stop_id": "QBUZZ:12634310",
+          "stop_time_seconds": 18
+        },
+        {
+          "stop_id": "QBUZZ:12634410",
+          "stop_time_seconds": 0
+        }
+      ],
+      "query_2": "MATCH (t:Trip)-[tr:TRAVELS_ON]->(seg:TravelSegment) WHERE t.trip_id = 'QBUZZ:8:0' AND date(t.date) = date('2023-11-03') RETURN seg.segment_id AS segment_id, seg.from_stop_id AS from_stop_id, seg.to_stop_id AS to_stop_id, tr.travel_time_seconds AS travel_time_seconds ORDER BY segment_id",
+      "correct_response_2": [
+        {
+          "segment_id": "QBUZZ:12631670|QBUZZ:12634110",
+          "from_stop_id": "QBUZZ:12631670",
+          "to_stop_id": "QBUZZ:12634110",
+          "travel_time_seconds": 70
+        },
+        {
+          "segment_id": "QBUZZ:12632120|QBUZZ:12632020",
+          "from_stop_id": "QBUZZ:12632120",
+          "to_stop_id": "QBUZZ:12632020",
+          "travel_time_seconds": 42
+        },
+        {
+          "segment_id": "QBUZZ:12632220|QBUZZ:12632120",
+          "from_stop_id": "QBUZZ:12632220",
+          "to_stop_id": "QBUZZ:12632120",
+          "travel_time_seconds": 57
+        },
+        {
+          "segment_id": "QBUZZ:12632630|QBUZZ:12632220",
+          "from_stop_id": "QBUZZ:12632630",
+          "to_stop_id": "QBUZZ:12632220",
+          "travel_time_seconds": 41
+        },
+        {
+          "segment_id": "QBUZZ:12634110|QBUZZ:12634310",
+          "from_stop_id": "QBUZZ:12634110",
+          "to_stop_id": "QBUZZ:12634310",
+          "travel_time_seconds": 85
+        },
+        {
+          "segment_id": "QBUZZ:12634310|QBUZZ:12634410",
+          "from_stop_id": "QBUZZ:12634310",
+          "to_stop_id": "QBUZZ:12634410",
+          "travel_time_seconds": 50
+        },
+        {
+          "segment_id": "QBUZZ:12634410|QBUZZ:12632630",
+          "from_stop_id": "QBUZZ:12634410",
+          "to_stop_id": "QBUZZ:12632630",
+          "travel_time_seconds": 75
+        }
+      ]
+    },
+    {
+      "id": "Q05",
+      "question": "For trip (trip_id: QBUZZ:1:0) on 2023-02-14, is the trip’s total duration roughly equal to the sum of the travel times between stops?",
+      "query_1": "MATCH (t:Trip) WHERE t.trip_id = 'QBUZZ:1:0' AND date(t.date) = date('2023-02-14') OPTIONAL MATCH (t)-[tr:TRAVELS_ON]->(:TravelSegment) WITH t, coalesce(sum(tr.travel_time_seconds), 0) AS sum_segment_seconds RETURN t.trip_id AS trip_id, t.date AS date, t.travel_time_seconds AS trip_total_seconds, sum_segment_seconds AS sum_segment_seconds, (t.travel_time_seconds - sum_segment_seconds) AS difference_seconds, CASE WHEN t.travel_time_seconds = 0 THEN NULL ELSE (t.travel_time_seconds - sum_segment_seconds) * 1.0 / t.travel_time_seconds END AS difference_ratio",
+      "correct_response_1": [
+        {
+          "trip_id": "QBUZZ:1:0",
+          "date": "2023-02-14",
+          "trip_total_seconds": 815.0,
+          "sum_segment_seconds": 815,
+          "difference_seconds": 0.0,
+          "difference_ratio": 0.0
+        }
+      ]
+    },
+    {
+      "id": "Q06",
+      "question": "Which travel segments are slowest on average (top 5), and which routes include them?",
+      "query_1": "MATCH (r:Route)-[hs:HAS_SEGMENT]->(seg:TravelSegment) WITH seg, avg(hs.segment_mean_travel_time_seconds) AS avg_segment_time_seconds, collect(DISTINCT {route_id: r.route_id, line: r.line}) AS routes RETURN seg.segment_id AS segment_id, seg.from_stop_id AS from_stop_id, seg.to_stop_id AS to_stop_id, avg_segment_time_seconds, routes ORDER BY avg_segment_time_seconds DESC LIMIT 5",
+      "correct_response_1": [
+        {
+          "segment_id": "QBUZZ:12686440|QBUZZ:12635220",
+          "from_stop_id": "QBUZZ:12686440",
+          "to_stop_id": "QBUZZ:12635220",
+          "avg_segment_time_seconds": 555.6705399863295,
+          "routes": [
+            {
+              "route_id": "7050",
+              "line": "QBUZZ:g310"
+            }
+          ]
+        },
+        {
+          "segment_id": "QBUZZ:12635210|QBUZZ:12686450",
+          "from_stop_id": "QBUZZ:12635210",
+          "to_stop_id": "QBUZZ:12686450",
+          "avg_segment_time_seconds": 512.0495867768595,
+          "routes": [
+            {
+              "route_id": "2861",
+              "line": "QBUZZ:g310"
+            }
+          ]
+        },
+        {
+          "segment_id": "QBUZZ:12686440|QBUZZ:12635420",
+          "from_stop_id": "QBUZZ:12686440",
+          "to_stop_id": "QBUZZ:12635420",
+          "avg_segment_time_seconds": 368.57340241796203,
+          "routes": [
+            {
+              "route_id": "7525",
+              "line": "QBUZZ:g310"
+            },
+            {
+              "route_id": "7524",
+              "line": "QBUZZ:g310"
+            },
+            {
+              "route_id": "7527",
+              "line": "QBUZZ:g310"
+            }
+          ]
+        },
+        {
+          "segment_id": "QBUZZ:12635410|QBUZZ:12686450",
+          "from_stop_id": "QBUZZ:12635410",
+          "to_stop_id": "QBUZZ:12686450",
+          "avg_segment_time_seconds": 295.1843843843844,
+          "routes": [
+            {
+              "route_id": "2848",
+              "line": "QBUZZ:g310"
+            },
+            {
+              "route_id": "2852",
+              "line": "QBUZZ:g310"
+            }
+          ]
+        },
+        {
+          "segment_id": "QBUZZ:12631810|QBUZZ:12631710",
+          "from_stop_id": "QBUZZ:12631810",
+          "to_stop_id": "QBUZZ:12631710",
+          "avg_segment_time_seconds": 150.4449715370019,
+          "routes": [
+            {
+              "route_id": "599",
+              "line": "QBUZZ:g174"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q07",
+      "question": "For route (route_id:2848) on 2022-12-09, how many trips were recorded and what is the average trip duration?",
+      "query_1": "MATCH (t:Trip) WHERE date(t.date) = date('2022-12-09') AND toString(t.route_id) = '2848' RETURN count(*) AS trips_recorded, avg(t.travel_time_seconds) AS avg_trip_duration_seconds",
+      "correct_response_1": [
+        {
+          "trips_recorded": 7,
+          "avg_trip_duration_seconds": 1007.4285714285716
+        }
+      ]
+    },
+    {
+      "id": "Q08",
+      "question": "Create an executive daily brief for 2023-09-18: total trips, average/median/90th percentile trip duration, top 5 slowest routes, top 5 stops with the longest typical stop times, and the busiest start-hour.",
+      "query_1": "MATCH (t:Trip) WHERE date(t.date) = date('2023-09-18') RETURN count(*) AS total_trips, avg(t.travel_time_seconds) AS avg_trip_duration_seconds, percentileCont(t.travel_time_seconds, 0.5) AS median_trip_duration_seconds, percentileCont(t.travel_time_seconds, 0.9) AS p90_trip_duration_seconds",
+      "correct_response_1": [
+        {
+          "total_trips": 74,
+          "avg_trip_duration_seconds": 832.0540540540541,
+          "median_trip_duration_seconds": 802.0,
+          "p90_trip_duration_seconds": 1201.4
+        }
+      ],
+      "query_2": "MATCH (t:Trip) WHERE date(t.date) = date('2023-09-18') WITH t.route_id AS route_id, t.line AS line, avg(t.travel_time_seconds) AS avg_trip_duration_seconds, count(*) AS trips ORDER BY avg_trip_duration_seconds DESC LIMIT 5 RETURN route_id, line, trips, avg_trip_duration_seconds",
+      "correct_response_2": [
+        {
+          "route_id": "2610",
+          "line": "QBUZZ:g171",
+          "trips": 11,
+          "avg_trip_duration_seconds": 1006.5454545454546
+        },
+        {
+          "route_id": "657",
+          "line": "QBUZZ:g174",
+          "trips": 14,
+          "avg_trip_duration_seconds": 971.142857142857
+        },
+        {
+          "route_id": "2852",
+          "line": "QBUZZ:g310",
+          "trips": 6,
+          "avg_trip_duration_seconds": 857.1666666666666
+        },
+        {
+          "route_id": "4257",
+          "line": "QBUZZ:g174",
+          "trips": 12,
+          "avg_trip_duration_seconds": 842.6666666666665
+        },
+        {
+          "route_id": "2848",
+          "line": "QBUZZ:g310",
+          "trips": 5,
+          "avg_trip_duration_seconds": 823.0
+        }
+      ],
+      "query_3": "MATCH (t:Trip)-[d:DWELL_AT]->(s:Stop) WHERE date(t.date) = date('2023-09-18') WITH s, avg(d.dwell_time_seconds) AS avg_stop_time_seconds, count(d) AS stop_events ORDER BY avg_stop_time_seconds DESC LIMIT 5 RETURN s.stop_id AS stop_id, stop_events, avg_stop_time_seconds",
+      "correct_response_3": [
+        {
+          "stop_id": "QBUZZ:12631630",
+          "stop_events": 1,
+          "avg_stop_time_seconds": 543.0
+        },
+        {
+          "stop_id": "QBUZZ:12631670",
+          "stop_events": 1,
+          "avg_stop_time_seconds": 201.0
+        },
+        {
+          "stop_id": "QBUZZ:12632010",
+          "stop_events": 2,
+          "avg_stop_time_seconds": 19.0
+        },
+        {
+          "stop_id": "QBUZZ:12631040",
+          "stop_events": 27,
+          "avg_stop_time_seconds": 18.962962962962965
+        },
+        {
+          "stop_id": "QBUZZ:12623320",
+          "stop_events": 5,
+          "avg_stop_time_seconds": 18.8
+        }
+      ],
+      "query_4": "MATCH (t:Trip) WHERE date(t.date) = date('2023-09-18') WITH time(t.from_time).hour AS hour, count(*) AS trips RETURN hour, trips ORDER BY trips DESC LIMIT 1",
+      "correct_response_4": [
+        {
+          "hour": 5,
+          "trips": 7
+        }
+      ]
+    },
+    {
+      "id": "Q09",
+      "question": "On 2022-04-27, list the top 10 unusually long trips (with route and line), and show how far above the day's median each one is.",
+      "query_1": "CALL { MATCH (t:Trip) WHERE date(t.date) = date('2022-04-27') RETURN percentileCont(t.travel_time_seconds, 0.5) AS median_seconds } MATCH (t:Trip) WHERE date(t.date) = date('2022-04-27') RETURN t.trip_id AS trip_id, t.route_id AS route_id, t.line AS line, t.from_time AS start_time, t.to_time AS end_time, t.travel_time_seconds AS duration_seconds, median_seconds AS day_median_seconds, (t.travel_time_seconds - median_seconds) AS above_median_seconds, CASE WHEN median_seconds = 0 THEN NULL ELSE (t.travel_time_seconds - median_seconds) * 1.0 / median_seconds END AS above_median_ratio ORDER BY duration_seconds DESC LIMIT 10",
+      "correct_response_1": [
+        {
+          "trip_id": "QBUZZ:6026:0",
+          "route_id": "7050",
+          "line": "QBUZZ:g310",
+          "start_time": "2022-04-27T11:38:24.000000000+00:00",
+          "end_time": "2022-04-27T11:57:37.000000000+00:00",
+          "duration_seconds": 1117.0,
+          "day_median_seconds": 893.0,
+          "above_median_seconds": 224.0,
+          "above_median_ratio": 0.25083986562150057
+        },
+        {
+          "trip_id": "QBUZZ:6006:0",
+          "route_id": "7050",
+          "line": "QBUZZ:g310",
+          "start_time": "2022-04-27T06:38:39.000000000+00:00",
+          "end_time": "2022-04-27T06:56:51.000000000+00:00",
+          "duration_seconds": 1054.0,
+          "day_median_seconds": 893.0,
+          "above_median_seconds": 161.0,
+          "above_median_ratio": 0.18029115341545351
+        },
+        {
+          "trip_id": "QBUZZ:6017:0",
+          "route_id": "2861",
+          "line": "QBUZZ:g310",
+          "start_time": "2022-04-27T08:05:41.000000000+00:00",
+          "end_time": "2022-04-27T08:23:17.000000000+00:00",
+          "duration_seconds": 1013.0,
+          "day_median_seconds": 893.0,
+          "above_median_seconds": 120.0,
+          "above_median_ratio": 0.1343784994400896
+        },
+        {
+          "trip_id": "QBUZZ:6033:0",
+          "route_id": "2861",
+          "line": "QBUZZ:g310",
+          "start_time": "2022-04-27T12:05:28.000000000+00:00",
+          "end_time": "2022-04-27T12:24:01.000000000+00:00",
+          "duration_seconds": 1006.0,
+          "day_median_seconds": 893.0,
+          "above_median_seconds": 113.0,
+          "above_median_ratio": 0.1265397536394177
+        },
+        {
+          "trip_id": "QBUZZ:6021:0",
+          "route_id": "2861",
+          "line": "QBUZZ:g310",
+          "start_time": "2022-04-27T09:05:50.000000000+00:00",
+          "end_time": "2022-04-27T09:22:07.000000000+00:00",
+          "duration_seconds": 977.0,
+          "day_median_seconds": 893.0,
+          "above_median_seconds": 84.0,
+          "above_median_ratio": 0.0940649496080627
+        },
+        {
+          "trip_id": "QBUZZ:6005:0",
+          "route_id": "2861",
+          "line": "QBUZZ:g310",
+          "start_time": "2022-04-27T05:05:55.000000000+00:00",
+          "end_time": "2022-04-27T05:23:37.000000000+00:00",
+          "duration_seconds": 970.0,
+          "day_median_seconds": 893.0,
+          "above_median_seconds": 77.0,
+          "above_median_ratio": 0.08622620380739082
+        },
+        {
+          "trip_id": "QBUZZ:6046:0",
+          "route_id": "7050",
+          "line": "QBUZZ:g310",
+          "start_time": "2022-04-27T16:40:47.000000000+00:00",
+          "end_time": "2022-04-27T16:57:08.000000000+00:00",
+          "duration_seconds": 954.0,
+          "day_median_seconds": 893.0,
+          "above_median_seconds": 61.0,
+          "above_median_ratio": 0.0683090705487122
+        },
+        {
+          "trip_id": "QBUZZ:6042:0",
+          "route_id": "7050",
+          "line": "QBUZZ:g310",
+          "start_time": "2022-04-27T15:38:27.000000000+00:00",
+          "end_time": "2022-04-27T15:55:12.000000000+00:00",
+          "duration_seconds": 953.0,
+          "day_median_seconds": 893.0,
+          "above_median_seconds": 60.0,
+          "above_median_ratio": 0.0671892497200448
+        },
+        {
+          "trip_id": "QBUZZ:6025:0",
+          "route_id": "2861",
+          "line": "QBUZZ:g310",
+          "start_time": "2022-04-27T10:05:58.000000000+00:00",
+          "end_time": "2022-04-27T10:23:46.000000000+00:00",
+          "duration_seconds": 948.0,
+          "day_median_seconds": 893.0,
+          "above_median_seconds": 55.0,
+          "above_median_ratio": 0.06159014557670773
+        },
+        {
+          "trip_id": "QBUZZ:6010:0",
+          "route_id": "7050",
+          "line": "QBUZZ:g310",
+          "start_time": "2022-04-27T07:39:49.000000000+00:00",
+          "end_time": "2022-04-27T07:56:35.000000000+00:00",
+          "duration_seconds": 948.0,
+          "day_median_seconds": 893.0,
+          "above_median_seconds": 55.0,
+          "above_median_ratio": 0.06159014557670773
+        }
+      ]
+    },
+    {
+      "id": "Q10",
+      "question": "Create a daily health card for route (route_id: 2852) on 2023-01-10: number of trips, average/median/90th percentile duration, earliest and latest start time, and whether it performed better or worse than its typical average.",
+      "query_1": "MATCH (r:Route) WHERE toString(r.route_id) = '2852' OPTIONAL MATCH (r)-[:HAS_TRIP]->(t:Trip) WHERE date(t.date) = date('2023-01-10') WITH r, count(t) AS trips, avg(t.travel_time_seconds) AS avg_trip_duration_seconds, percentileCont(t.travel_time_seconds, 0.5) AS median_trip_duration_seconds, percentileCont(t.travel_time_seconds, 0.9) AS p90_trip_duration_seconds, min(t.from_time) AS earliest_start_time, max(t.from_time) AS latest_start_time RETURN r.route_id AS route_id, r.line AS line, trips, avg_trip_duration_seconds, median_trip_duration_seconds, p90_trip_duration_seconds, earliest_start_time, latest_start_time, r.mean_trip_travel_time_seconds AS typical_avg_trip_duration_seconds, (avg_trip_duration_seconds - r.mean_trip_travel_time_seconds) AS delta_vs_typical_seconds",
+      "correct_response_1": [
+        {
+          "route_id": "2852",
+          "line": "QBUZZ:g310",
+          "trips": 4,
+          "avg_trip_duration_seconds": 1485.0,
+          "median_trip_duration_seconds": 1409.5,
+          "p90_trip_duration_seconds": 2045.2,
+          "earliest_start_time": "2023-01-10T04:36:12.000000000+00:00",
+          "latest_start_time": "2023-01-10T22:06:43.000000000+00:00",
+          "typical_avg_trip_duration_seconds": 1090.7731397459165,
+          "delta_vs_typical_seconds": 394.2268602540835
+        }
+      ]
+    },
+    {
+      "id": "Q11",
+      "question": "Compare 2023-03-13–2023-03-19 with the previous week: change in total trips, change in average trip duration, and whether the top 3 slowest routes changed.",
+      "query_1": "CALL { MATCH (t:Trip) WHERE date(t.date) >= date('2023-03-13') AND date(t.date) <= date('2023-03-19') RETURN count(*) AS curr_total, avg(t.travel_time_seconds) AS curr_avg } CALL { MATCH (t:Trip) WHERE date(t.date) >= date('2023-03-06') AND date(t.date) <= date('2023-03-12') RETURN count(*) AS prev_total, avg(t.travel_time_seconds) AS prev_avg } CALL { MATCH (t:Trip) WHERE date(t.date) >= date('2023-03-13') AND date(t.date) <= date('2023-03-19') WITH t.route_id AS route_id, avg(t.travel_time_seconds) AS avg_dur ORDER BY avg_dur DESC LIMIT 3 RETURN collect(route_id) AS curr_top3_slowest_routes } CALL { MATCH (t:Trip) WHERE date(t.date) >= date('2023-03-06') AND date(t.date) <= date('2023-03-12') WITH t.route_id AS route_id, avg(t.travel_time_seconds) AS avg_dur ORDER BY avg_dur DESC LIMIT 3 RETURN collect(route_id) AS prev_top3_slowest_routes } RETURN curr_total, prev_total, (curr_total - prev_total) AS delta_total_trips, curr_avg, prev_avg, (curr_avg - prev_avg) AS delta_avg_duration_seconds, curr_top3_slowest_routes, prev_top3_slowest_routes, (curr_top3_slowest_routes = prev_top3_slowest_routes) AS top3_unchanged",
+      "correct_response_1": [
+        {
+          "curr_total": 46,
+          "prev_total": 70,
+          "delta_total_trips": -24,
+          "curr_avg": 782.8478260869566,
+          "prev_avg": 731.7285714285714,
+          "delta_avg_duration_seconds": 51.119254658385216,
+          "curr_top3_slowest_routes": [
+            "240",
+            "3415",
+            "2610"
+          ],
+          "prev_top3_slowest_routes": [
+            "2610",
+            "2852",
+            "7527"
+          ],
+          "top3_unchanged": false
+        }
+      ]
+    },
+    {
+      "id": "Q12",
+      "question": "Create a monthly management report for 2022-02: total trips, average/median/90th percentile trip duration, top 10 routes by volume, top 10 stops with the longest typical stop times, and top 10 slowest travel segments.",
+      "query_1": "MATCH (t:Trip) WHERE date(t.date) >= date('2022-02-01') AND date(t.date) < date('2022-03-01') RETURN count(*) AS total_trips, avg(t.travel_time_seconds) AS avg_trip_duration_seconds, percentileCont(t.travel_time_seconds, 0.5) AS median_trip_duration_seconds, percentileCont(t.travel_time_seconds, 0.9) AS p90_trip_duration_seconds",
+      "correct_response_1": [
+        {
+          "total_trips": 1628,
+          "avg_trip_duration_seconds": 949.8943488943484,
+          "median_trip_duration_seconds": 823.0,
+          "p90_trip_duration_seconds": 1613.0
+        }
+      ],
+      "query_2": "MATCH (t:Trip) WHERE date(t.date) >= date('2022-02-01') AND date(t.date) < date('2022-03-01') WITH t.route_id AS route_id, t.line AS line, count(*) AS trips ORDER BY trips DESC LIMIT 10 RETURN route_id, line, trips",
+      "correct_response_2": [
+        {
+          "route_id": "657",
+          "line": "QBUZZ:g174",
+          "trips": 354
+        },
+        {
+          "route_id": "7525",
+          "line": "QBUZZ:g310",
+          "trips": 304
+        },
+        {
+          "route_id": "4255",
+          "line": "QBUZZ:g174",
+          "trips": 300
+        },
+        {
+          "route_id": "2848",
+          "line": "QBUZZ:g310",
+          "trips": 270
+        },
+        {
+          "route_id": "242",
+          "line": "QBUZZ:g171",
+          "trips": 118
+        },
+        {
+          "route_id": "2852",
+          "line": "QBUZZ:g310",
+          "trips": 78
+        },
+        {
+          "route_id": "2610",
+          "line": "QBUZZ:g171",
+          "trips": 59
+        },
+        {
+          "route_id": "5168",
+          "line": "QBUZZ:g310",
+          "trips": 43
+        },
+        {
+          "route_id": "3415",
+          "line": "QBUZZ:g013",
+          "trips": 32
+        },
+        {
+          "route_id": "4254",
+          "line": "QBUZZ:g174",
+          "trips": 24
+        }
+      ],
+      "query_3": "MATCH (t:Trip)-[d:DWELL_AT]->(s:Stop) WHERE date(t.date) >= date('2022-02-01') AND date(t.date) < date('2022-03-01') WITH s, avg(d.dwell_time_seconds) AS avg_stop_time_seconds, count(d) AS observations ORDER BY avg_stop_time_seconds DESC LIMIT 10 RETURN s.stop_id AS stop_id, observations, avg_stop_time_seconds",
+      "correct_response_3": [
+        {
+          "stop_id": "QBUZZ:12623320",
+          "observations": 42,
+          "avg_stop_time_seconds": 25.285714285714292
+        },
+        {
+          "stop_id": "QBUZZ:12631630",
+          "observations": 1,
+          "avg_stop_time_seconds": 21.0
+        },
+        {
+          "stop_id": "QBUZZ:12686440",
+          "observations": 1,
+          "avg_stop_time_seconds": 19.0
+        },
+        {
+          "stop_id": "QBUZZ:12632010",
+          "observations": 24,
+          "avg_stop_time_seconds": 14.75
+        },
+        {
+          "stop_id": "QBUZZ:12631030",
+          "observations": 739,
+          "avg_stop_time_seconds": 12.581867388362642
+        },
+        {
+          "stop_id": "QBUZZ:12635420",
+          "observations": 380,
+          "avg_stop_time_seconds": 9.573684210526318
+        },
+        {
+          "stop_id": "QBUZZ:12632920",
+          "observations": 152,
+          "avg_stop_time_seconds": 8.361842105263158
+        },
+        {
+          "stop_id": "QBUZZ:12634710",
+          "observations": 739,
+          "avg_stop_time_seconds": 7.420838971583217
+        },
+        {
+          "stop_id": "QBUZZ:12632910",
+          "observations": 343,
+          "avg_stop_time_seconds": 6.306122448979594
+        },
+        {
+          "stop_id": "QBUZZ:12635010",
+          "observations": 396,
+          "avg_stop_time_seconds": 6.032828282828282
+        }
+      ],
+      "query_4": "MATCH (t:Trip)-[tr:TRAVELS_ON]->(seg:TravelSegment) WHERE date(t.date) >= date('2022-02-01') AND date(t.date) < date('2022-03-01') WITH seg, avg(tr.travel_time_seconds) AS avg_travel_time_seconds, count(tr) AS observations ORDER BY avg_travel_time_seconds DESC LIMIT 10 RETURN seg.segment_id AS segment_id, seg.from_stop_id AS from_stop_id, seg.to_stop_id AS to_stop_id, observations, avg_travel_time_seconds",
+      "correct_response_4": [
+        {
+          "segment_id": "QBUZZ:12686440|QBUZZ:12635420",
+          "from_stop_id": "QBUZZ:12686440",
+          "to_stop_id": "QBUZZ:12635420",
+          "observations": 373,
+          "avg_travel_time_seconds": 370.077747989276
+        },
+        {
+          "segment_id": "QBUZZ:12635410|QBUZZ:12686450",
+          "from_stop_id": "QBUZZ:12635410",
+          "to_stop_id": "QBUZZ:12686450",
+          "observations": 396,
+          "avg_travel_time_seconds": 302.54292929292933
+        },
+        {
+          "segment_id": "QBUZZ:12631630|QBUZZ:12631790",
+          "from_stop_id": "QBUZZ:12631630",
+          "to_stop_id": "QBUZZ:12631790",
+          "observations": 354,
+          "avg_travel_time_seconds": 149.29378531073445
+        },
+        {
+          "segment_id": "QBUZZ:12631650|QBUZZ:12631790",
+          "from_stop_id": "QBUZZ:12631650",
+          "to_stop_id": "QBUZZ:12631790",
+          "observations": 152,
+          "avg_travel_time_seconds": 138.4013157894737
+        },
+        {
+          "segment_id": "QBUZZ:12623320|QBUZZ:12633120",
+          "from_stop_id": "QBUZZ:12623320",
+          "to_stop_id": "QBUZZ:12633120",
+          "observations": 343,
+          "avg_travel_time_seconds": 121.09620991253641
+        },
+        {
+          "segment_id": "QBUZZ:12634120|QBUZZ:12631670",
+          "from_stop_id": "QBUZZ:12634120",
+          "to_stop_id": "QBUZZ:12631670",
+          "observations": 165,
+          "avg_travel_time_seconds": 120.9151515151515
+        },
+        {
+          "segment_id": "QBUZZ:12633110|QBUZZ:12623310",
+          "from_stop_id": "QBUZZ:12633110",
+          "to_stop_id": "QBUZZ:12623310",
+          "observations": 152,
+          "avg_travel_time_seconds": 107.67105263157893
+        },
+        {
+          "segment_id": "QBUZZ:12631660|QBUZZ:12631790",
+          "from_stop_id": "QBUZZ:12631660",
+          "to_stop_id": "QBUZZ:12631790",
+          "observations": 396,
+          "avg_travel_time_seconds": 104.1464646464646
+        },
+        {
+          "segment_id": "QBUZZ:12631670|QBUZZ:12634110",
+          "from_stop_id": "QBUZZ:12631670",
+          "to_stop_id": "QBUZZ:12634110",
+          "observations": 146,
+          "avg_travel_time_seconds": 96.04794520547948
+        },
+        {
+          "segment_id": "QBUZZ:12634110|QBUZZ:12634310",
+          "from_stop_id": "QBUZZ:12634110",
+          "to_stop_id": "QBUZZ:12634310",
+          "observations": 146,
+          "avg_travel_time_seconds": 95.04109589041096
+        }
+      ]
+    },
+    {
+      "id": "Q13",
+      "question": "Create a stop profile for stop (Stop QBUZZ:12631790) in 2023-08: which lines or routes serve it, typical stop time, the observed average stop time over the month, and the top 3 days/times when stop times were highest.",
+      "query_1": "MATCH (r:Route)-[:SERVES]->(s:Stop {stop_id:'QBUZZ:12631790'}) RETURN DISTINCT r.line AS line, r.route_id AS route_id ORDER BY line, route_id",
+      "correct_response_1": [
+        {
+          "line": "QBUZZ:g013",
+          "route_id": "4225"
+        },
+        {
+          "line": "QBUZZ:g013",
+          "route_id": "4225.0"
+        },
+        {
+          "line": "QBUZZ:g013",
+          "route_id": "4226"
+        },
+        {
+          "line": "QBUZZ:g013",
+          "route_id": "4226.0"
+        },
+        {
+          "line": "QBUZZ:g013",
+          "route_id": "4228"
+        },
+        {
+          "line": "QBUZZ:g013",
+          "route_id": "4228.0"
+        },
+        {
+          "line": "QBUZZ:g171",
+          "route_id": "244"
+        },
+        {
+          "line": "QBUZZ:g171",
+          "route_id": "244.0"
+        },
+        {
+          "line": "QBUZZ:g171",
+          "route_id": "2576"
+        },
+        {
+          "line": "QBUZZ:g171",
+          "route_id": "2576.0"
+        },
+        {
+          "line": "QBUZZ:g171",
+          "route_id": "2610"
+        },
+        {
+          "line": "QBUZZ:g171",
+          "route_id": "2610.0"
+        },
+        {
+          "line": "QBUZZ:g174",
+          "route_id": "2724"
+        },
+        {
+          "line": "QBUZZ:g174",
+          "route_id": "2724.0"
+        },
+        {
+          "line": "QBUZZ:g174",
+          "route_id": "599"
+        },
+        {
+          "line": "QBUZZ:g174",
+          "route_id": "599.0"
+        },
+        {
+          "line": "QBUZZ:g174",
+          "route_id": "638"
+        },
+        {
+          "line": "QBUZZ:g174",
+          "route_id": "638.0"
+        },
+        {
+          "line": "QBUZZ:g174",
+          "route_id": "657"
+        },
+        {
+          "line": "QBUZZ:g174",
+          "route_id": "657.0"
+        },
+        {
+          "line": "QBUZZ:g310",
+          "route_id": "2837"
+        },
+        {
+          "line": "QBUZZ:g310",
+          "route_id": "2837.0"
+        },
+        {
+          "line": "QBUZZ:g310",
+          "route_id": "2848"
+        },
+        {
+          "line": "QBUZZ:g310",
+          "route_id": "2848.0"
+        },
+        {
+          "line": "QBUZZ:g310",
+          "route_id": "2852"
+        },
+        {
+          "line": "QBUZZ:g310",
+          "route_id": "2852.0"
+        },
+        {
+          "line": "QBUZZ:g310",
+          "route_id": "2861"
+        },
+        {
+          "line": "QBUZZ:g310",
+          "route_id": "2861.0"
+        },
+        {
+          "line": "QBUZZ:g310",
+          "route_id": "7527"
+        },
+        {
+          "line": "QBUZZ:g310",
+          "route_id": "7527.0"
+        }
+      ],
+      "query_2": "MATCH (r:Route)-[sv:SERVES]->(s:Stop {stop_id:'QBUZZ:12631790'}) RETURN avg(sv.mean_dwell_time_seconds) AS typical_stop_time_seconds, percentileCont(sv.mean_dwell_time_seconds, 0.5) AS median_typical_stop_time_seconds, count(sv) AS route_stop_pairs",
+      "correct_response_2": [
+        {
+          "typical_stop_time_seconds": 2.2869142466425862,
+          "median_typical_stop_time_seconds": 2.255924170616114,
+          "route_stop_pairs": 30
+        }
+      ],
+      "query_3": "MATCH (t:Trip)-[d:DWELL_AT]->(s:Stop {stop_id:'QBUZZ:12631790'}) WHERE date(t.date) >= date('2023-08-01') AND date(t.date) < date('2023-09-01') RETURN count(d) AS observations, avg(d.dwell_time_seconds) AS avg_observed_stop_time_seconds, percentileCont(d.dwell_time_seconds, 0.5) AS median_observed_stop_time_seconds",
+      "correct_response_3": [
+        {
+          "observations": 1030,
+          "avg_observed_stop_time_seconds": 1.0592233009708738,
+          "median_observed_stop_time_seconds": 0.0
+        }
+      ],
+      "query_4": "MATCH (t:Trip)-[d:DWELL_AT]->(s:Stop {stop_id:'QBUZZ:12631790'}) WHERE date(t.date) >= date('2023-08-01') AND date(t.date) < date('2023-09-01') WITH t.date AS day, avg(d.dwell_time_seconds) AS avg_stop_time_seconds, count(d) AS observations ORDER BY avg_stop_time_seconds DESC LIMIT 3 RETURN day, observations, avg_stop_time_seconds",
+      "correct_response_4": [
+        {
+          "day": "2023-08-06",
+          "observations": 10,
+          "avg_stop_time_seconds": 4.3
+        },
+        {
+          "day": "2023-08-07",
+          "observations": 38,
+          "avg_stop_time_seconds": 2.8947368421052624
+        },
+        {
+          "day": "2023-08-27",
+          "observations": 10,
+          "avg_stop_time_seconds": 2.8
+        }
+      ],
+      "query_5": "MATCH (t:Trip)-[d:DWELL_AT]->(s:Stop {stop_id:'QBUZZ:12631790'}) WHERE date(t.date) >= date('2023-08-01') AND date(t.date) < date('2023-09-01') WITH time(t.from_time).hour AS hour, avg(d.dwell_time_seconds) AS avg_stop_time_seconds, count(d) AS observations ORDER BY avg_stop_time_seconds DESC LIMIT 3 RETURN hour, observations, avg_stop_time_seconds",
+      "correct_response_5": [
+        {
+          "hour": 8,
+          "observations": 60,
+          "avg_stop_time_seconds": 5.700000000000001
+        },
+        {
+          "hour": 4,
+          "observations": 69,
+          "avg_stop_time_seconds": 2.4782608695652164
+        },
+        {
+          "hour": 14,
+          "observations": 58,
+          "avg_stop_time_seconds": 1.8275862068965516
+        }
+      ]
+    },
+    {
+      "id": "Q14",
+      "question": "Compare 2022 vs 2023: change in total trips, change in average trip duration, and the top 5 routes that improved or worsened the most.",
+      "query_1": "CALL { MATCH (t:Trip) WHERE date(t.date).year = 2022 RETURN count(*) AS trips_2022, avg(t.travel_time_seconds) AS avg_2022 } CALL { MATCH (t:Trip) WHERE date(t.date).year = 2023 RETURN count(*) AS trips_2023, avg(t.travel_time_seconds) AS avg_2023 } RETURN trips_2022, trips_2023, (trips_2023 - trips_2022) AS delta_trips, avg_2022, avg_2023, (avg_2023 - avg_2022) AS delta_avg_duration_seconds",
+      "correct_response_1": [
+        {
+          "trips_2022": 19274,
+          "trips_2023": 18048,
+          "delta_trips": -1226,
+          "avg_2022": 957.1136245719649,
+          "avg_2023": 788.4975620567341,
+          "delta_avg_duration_seconds": -168.61606251523085
+        }
+      ],
+      "query_2": "CALL { MATCH (t:Trip) WHERE date(t.date).year = 2022 WITH t.route_id AS route_id, avg(t.travel_time_seconds) AS avg_2022, count(*) AS trips_2022 RETURN collect({route_id: route_id, avg_2022: avg_2022, trips_2022: trips_2022}) AS r2022 } CALL { MATCH (t:Trip) WHERE date(t.date).year = 2023 WITH t.route_id AS route_id, avg(t.travel_time_seconds) AS avg_2023, count(*) AS trips_2023 RETURN collect({route_id: route_id, avg_2023: avg_2023, trips_2023: trips_2023}) AS r2023 } UNWIND r2022 AS a WITH a, [b IN r2023 WHERE b.route_id = a.route_id][0] AS b WHERE b IS NOT NULL WITH a.route_id AS route_id, a.avg_2022 AS avg_2022, b.avg_2023 AS avg_2023, a.trips_2022 AS trips_2022, b.trips_2023 AS trips_2023, (b.avg_2023 - a.avg_2022) AS delta_seconds RETURN route_id, trips_2022, trips_2023, avg_2022, avg_2023, delta_seconds, CASE WHEN delta_seconds < 0 THEN 'improved (shorter)' ELSE 'worsened (longer)' END AS direction ORDER BY abs(delta_seconds) DESC LIMIT 5",
+      "correct_response_2": [
+        {
+          "route_id": "3415",
+          "trips_2022": 982,
+          "trips_2023": 1182,
+          "avg_2022": 1220.1853360488797,
+          "avg_2023": 721.2580372250424,
+          "delta_seconds": -498.9272988238373,
+          "direction": "improved (shorter)"
+        },
+        {
+          "route_id": "4225",
+          "trips_2022": 26,
+          "trips_2023": 59,
+          "avg_2022": 1012.4230769230771,
+          "avg_2023": 609.1694915254238,
+          "delta_seconds": -403.2535853976533,
+          "direction": "improved (shorter)"
+        },
+        {
+          "route_id": "657",
+          "trips_2022": 3770,
+          "trips_2023": 1542,
+          "avg_2022": 1042.135809018567,
+          "avg_2023": 850.3488975356695,
+          "delta_seconds": -191.7869114828975,
+          "direction": "improved (shorter)"
+        },
+        {
+          "route_id": "599",
+          "trips_2022": 42,
+          "trips_2023": 681,
+          "avg_2022": 772.2142857142856,
+          "avg_2023": 642.6240822320111,
+          "delta_seconds": -129.59020348227443,
+          "direction": "improved (shorter)"
+        },
+        {
+          "route_id": "2852",
+          "trips_2022": 684,
+          "trips_2023": 832,
+          "avg_2022": 1059.0336257309937,
+          "avg_2023": 943.4002403846157,
+          "delta_seconds": -115.63338534637796,
+          "direction": "improved (shorter)"
+        }
+      ]
+    },
+    {
+      "id": "Q15",
+      "question": "For line (QBUZZ:g174) during 2023: total trips, average/median/90th percentile trip duration, top 5 slowest routes on this line, and the 3 stops with the longest typical stop times.",
+      "query_1": "MATCH (t:Trip) WHERE date(t.date).year = 2023 AND t.line = 'QBUZZ:g174' RETURN count(*) AS total_trips, avg(t.travel_time_seconds) AS avg_trip_duration_seconds, percentileCont(t.travel_time_seconds, 0.5) AS median_trip_duration_seconds, percentileCont(t.travel_time_seconds, 0.9) AS p90_trip_duration_seconds",
+      "correct_response_1": [
+        {
+          "total_trips": 4867,
+          "avg_trip_duration_seconds": 753.727347441957,
+          "median_trip_duration_seconds": 599.0,
+          "p90_trip_duration_seconds": 1267.0
+        }
+      ],
+      "query_2": "MATCH (t:Trip) WHERE date(t.date).year = 2023 AND t.line = 'QBUZZ:g174' WITH t.route_id AS route_id, avg(t.travel_time_seconds) AS avg_trip_duration_seconds, count(*) AS trips ORDER BY avg_trip_duration_seconds DESC LIMIT 5 RETURN route_id, trips, avg_trip_duration_seconds",
+      "correct_response_2": [
+        {
+          "route_id": "657",
+          "trips": 1542,
+          "avg_trip_duration_seconds": 850.3488975356695
+        },
+        {
+          "route_id": "4257",
+          "trips": 2180,
+          "avg_trip_duration_seconds": 758.2027522935771
+        },
+        {
+          "route_id": "638",
+          "trips": 67,
+          "avg_trip_duration_seconds": 667.3432835820895
+        },
+        {
+          "route_id": "599",
+          "trips": 681,
+          "avg_trip_duration_seconds": 642.6240822320111
+        },
+        {
+          "route_id": "4254",
+          "trips": 54,
+          "avg_trip_duration_seconds": 636.7592592592595
+        }
+      ],
+      "query_3": "MATCH (t:Trip)-[d:DWELL_AT]->(s:Stop) WHERE date(t.date).year = 2023 AND t.line = 'QBUZZ:g174' WITH s, avg(d.dwell_time_seconds) AS avg_stop_time_seconds, count(d) AS observations ORDER BY avg_stop_time_seconds DESC LIMIT 3 RETURN s.stop_id AS stop_id, observations, avg_stop_time_seconds",
+      "correct_response_3": [
+        {
+          "stop_id": "QBUZZ:12631650",
+          "observations": 4,
+          "avg_stop_time_seconds": 1358.75
+        },
+        {
+          "stop_id": "QBUZZ:12631630",
+          "observations": 6,
+          "avg_stop_time_seconds": 522.5
+        },
+        {
+          "stop_id": "QBUZZ:12631660",
+          "observations": 1,
+          "avg_stop_time_seconds": 197.0
+        }
+      ]
+    }
+]
