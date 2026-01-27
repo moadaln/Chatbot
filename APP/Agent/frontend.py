@@ -8,7 +8,7 @@ import pandas as pd
 import streamlit as st
 
 from agents import SQLiteSession
-from agent_runtime_nocharts import run_agent_turn
+from agent_runtime import run_agent_turn
 
 st.set_page_config(page_title="Neo4j MCP Chatbot", layout="wide")
 

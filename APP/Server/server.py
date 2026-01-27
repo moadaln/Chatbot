@@ -5,7 +5,7 @@ from typing import Any, Dict, List, Optional
 
 from mcp.server.fastmcp import FastMCP
 
-from neo4j_tools_core_nocharts import (
+from neo4j_tools_core import (
     get_schema_core,
     run_query_core,
 )

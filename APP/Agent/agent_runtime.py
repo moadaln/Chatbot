@@ -18,14 +18,13 @@ Grundprinzip:
 - Antworte kurz und verständlich. Keine Cypher im Output, außer der User fragt explizit.
 - für daten nutze folgende Format: YYYY-MM-DD als String deswegen bitte bei der suche Datum in echtes Date umwandeln
   Beispiel: WHERE date(t.date) >= date('2022-01-01') AND date(t.date) <= date('2022-01-31')
+- Liste kurz die verwendeten Tools + Parameter (ohne interne Fehlerdetails, außer es ist relevant).
 
 WICHTIG:
 - Keine Visualisierung/Charts erzeugen. Antworte rein textbasiert.
 - Wenn der User nach “Graph/Diagramm/Plot/Chart/Trend/Verlauf” fragt: erkläre die Ergebnisse in Worten (und ggf. mit Zahlen),
   aber rufe KEINE Chart-Tools auf.
 
-Wenn der User fragt „zeige mir wie / wie bist du drauf gekommen“:
-- Liste kurz die verwendeten Tools + Parameter (ohne interne Fehlerdetails, außer es ist relevant).
 """
 
 
