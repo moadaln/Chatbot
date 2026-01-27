@@ -10,7 +10,7 @@ This project implements a chatbot for exploring public transport network data mo
 - `Benchmarking` : datasets for evaluation  
 
 ## System design
-<img src="docs/diagrams/Sequense_Diagram.png" alt="System design" width="800">
+<img src="docs/diagrams/System design.png" alt="System design" width="800">
 
 ## Request flow
 <img src="docs/diagrams/Sequense_Diagram.png" alt="Sequense_Diagram" width="800">
