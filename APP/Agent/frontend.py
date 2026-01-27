@@ -72,13 +72,13 @@ def _extract_rows(x: Any) -> List[Dict[str, Any]]:
     return []
 
 
-    if isinstance(x, dict) and x.get("schema") == "vega-lite":
-        data = x.get("data")
-        spec = x.get("spec")
-        if isinstance(data, list) and isinstance(spec, dict):
-            return x
+    # if isinstance(x, dict) and x.get("schema") == "vega-lite":
+    #     data = x.get("data")
+    #     spec = x.get("spec")
+    #     if isinstance(data, list) and isinstance(spec, dict):
+    #         return x
 
-    return None
+    # return None
 
 
 # ----------------------------
@@ -133,8 +133,8 @@ if user_text:
                         st.write(f"Tool call: {item.get('name')}")
                         if item.get("args") is not None:
                             st.code(str(item["args"]))
-                    elif item.get("type") == "tool_output":
-                        st.write(f"Tool output: {item.get('tool_name', 'unknown_tool')}")
+                    # elif item.get("type") == "tool_output":
+                    #     st.write(f"Tool output: {item.get('tool_name', 'unknown_tool')}")
 
         # Raw outputs (helpful while debugging)
         if show_raw:
@@ -149,5 +149,5 @@ if user_text:
                     rows = _extract_rows(out)
                     if rows:
                         st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
-                    else:
-                        st.code(json.dumps(out, ensure_ascii=False, indent=2))
+                    # else:
+                    #     st.code(json.dumps(out, ensure_ascii=False, indent=2))
