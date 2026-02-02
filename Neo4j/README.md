@@ -69,10 +69,10 @@ After startup, Neo4j is typically available at:
 
 Run the ETL inside the container with `cypher-shell`.
 
- `docker exec neo4j cypher-shell -u neo4j -p password -d neo4j -f import/ETL_one_city.cypher` 
+
 
 ```bash
-docker exec neo4j cypher-shell -u neo4j -p password -d neo4j -f /var/lib/neo4j/import/ETL.cypher
+docker exec neo4j cypher-shell -u neo4j -p password -d neo4j -f import/ETL.cypher
 ```
 
 > Note: Replace `password` / database name with the values configured in your `docker-compose.yaml`.
@@ -87,7 +87,7 @@ docker exec neo4j cypher-shell -u neo4j -p password -d neo4j "MATCH (s:Stop) RET
 docker exec neo4j cypher-shell -u neo4j -p password -d neo4j "MATCH (r:Route) RETURN count(r) AS routes;"
 ```
 
-## What the ETL does (very short)
+## What the ETL does 
 
 - Builds core entities such as `Stop` and `Route`.
 - Creates directed `LINK` edges between stops with rolling travel-time statistics and distance.
@@ -96,12 +96,12 @@ docker exec neo4j cypher-shell -u neo4j -p password -d neo4j "MATCH (r:Route) RE
 
 
 ## Knowledge Graph (KG) schema
+![KG schema diagram](docs/diagrams/KG_Schema_simple.png)
 
+### KG schema diagram 
+![KG schema diagram](docs/diagrams/KG_Schema.png)
 
-### KG schema diagram (image placeholder)
-![KG schema diagram](docs/diagrams/kg_schema.png)
-
-## ETL flow diagram (image placeholder)
+## ETL flow diagram 
 
 ![ETL flow diagram](docs/diagrams/etl_flow.png)
 
