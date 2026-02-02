@@ -3,6 +3,7 @@ import json
 import uuid
 import asyncio
 from typing import Any, Dict, List, Optional
+from pprint import pprint
 
 import pandas as pd
 import streamlit as st
@@ -88,7 +89,7 @@ st.sidebar.header("Settings")
 mcp_url = st.sidebar.text_input("MCP Server URL", value=os.getenv("MCP_SERVER_URL", "http://localhost:8000/mcp"))
 model = st.sidebar.text_input("Model", value=os.getenv("OPENAI_MODEL", "gpt-5.1"))
 show_steps = st.sidebar.checkbox("Show tool steps", value=True)
-show_raw = st.sidebar.checkbox("Show raw tool outputs", value=True)
+# show_output = st.sidebar.checkbox("Show tool outputs", value=True)
 
 st.title("Neo4j MCP Chatbot")
 
@@ -128,26 +129,73 @@ if user_text:
         # Steps (debug)
         if show_steps:
             with st.expander("Tool steps"):
+                i = 0
+                # with st.expander("Trace and result"):
+                #     st.code(json.dumps(trace, indent=2, ensure_ascii=False)) 
                 for item in trace:
-                    if item.get("type") == "tool_call":
-                        st.write(f"Tool call: {item.get('name')}")
-                        if item.get("args") is not None:
-                            st.code(str(item["args"]))
-                    # elif item.get("type") == "tool_output":
-                    #     st.write(f"Tool output: {item.get('tool_name', 'unknown_tool')}")
+                    i+=1
+                    if item.get("type") == "tool_call":          
+                        with st.expander("step {}: call tool : {} ".format(i,item.get('tool_name'))):
+                            st.write(f"Tool call: {item.get('tool_name')}")
+                            if item.get("args") is not None:
+                                st.code(str(item["args"])) 
+                            out = _unwrap(item.get("tool_output"))
+                            # If rows -> show table; else show JSON
+                            st.markdown("tool outputs:")
+                            rows = _extract_rows(out)
+                            if rows:
+                                st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+                            else:
+                                st.code(json.dumps(out, ensure_ascii=False, indent=2))
+                                            
 
-        # Raw outputs (helpful while debugging)
-        if show_raw:
-            with st.expander("Raw tool outputs"):
-                for item in trace:
-                    if item.get("type") != "tool_output":
-                        continue
-                    tool = item.get("tool_name", "unknown_tool")
-                    out = _unwrap(item.get("output"))
-                    st.markdown(f"**{tool}**")
-                    # If rows -> show table; else show JSON
-                    rows = _extract_rows(out)
-                    if rows:
-                        st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
-                    # else:
-                    #     st.code(json.dumps(out, ensure_ascii=False, indent=2))
+                    # trace.remove(item)
+                    # st.write(f"Tool : {item.get("tool_name")}: {item.get("type")}")
+                    # st.code(json.dumps(trace, indent=2, ensure_ascii=False))
+
+                    # name = ""
+                    # if item.get("type") == "tool_call":
+                    #     i+=1
+                    #     name = item.get('tool_name')
+                    #     with st.expander("step {}: call tool : {} ".format(i,name)):
+                    #         st.write(f"Tool call: {name}")
+                    #         if item.get("args") is not None:
+                    #             st.code(str(item["args"]))                                
+                    #     # elif item.get("type") == "tool_output":
+                    #     #     st.write(f"Tool output: {item.get('tool_name', 'unknown_tool')}")
+                    #         # with st.expander("Raw tool outputs"):
+                    #         for item1 in trace:
+                    #             if item1.get("type") == "tool_output":  
+                    #                 if item1.get("tool_name", "unknown_tool") == name :
+                    #                     st.markdown("tool outputs:")
+                    #                     tool = item1.get("tool_name", "unknown_tool")
+                    #                     out = _unwrap(item1.get("output"))
+                    #                         # st.markdown(f"**{tool}**")
+                    #                         # If rows -> show table; else show JSON
+                    #                     rows = _extract_rows(out)
+                    #                     if rows:
+                    #                         st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+                    #                         trace.remove(item1)
+                    #                         break
+                    #                     else:
+                    #                         st.code(json.dumps(out, ensure_ascii=False, indent=2))
+                    #                         trace.remove(item1)
+                    #                         break
+
+
+
+        # # Raw outputs (helpful while debugging)
+        # if show_output:
+        #     with st.expander("Raw tool outputs"):
+        #         for item in trace:
+        #             if item.get("type") != "tool_output":
+        #                 continue
+        #             tool = item.get("tool_name", "unknown_tool")
+        #             out = _unwrap(item.get("output"))
+        #             st.markdown(f"**{tool}**")
+        #             # If rows -> show table; else show JSON
+        #             rows = _extract_rows(out)
+        #             if rows:
+        #                 st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+        #             # else:
+        #             #     st.code(json.dumps(out, ensure_ascii=False, indent=2))
